@@ -74,23 +74,23 @@ def buildSeqCNNModel(dataset):
     # Build the model
     print(f" ##> Attempting to build a Squential model.\n");
     seqCNNModel = tf.keras.Sequential([
-            layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu'), #, name='Layer1_Conv1'),
-            layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu'), #, name='Layer1_Conv2'),
-            layers.MaxPooling2D(), #(), #(name='Layer1_MaxPool1'),
+            layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu', name='Layer1_Conv1'),
+            layers.Conv2D(filters=64, kernel_size=3, padding='same', activation='relu', name='Layer1_Conv2'),
+            layers.MaxPooling2D(pool_size=(2, 2), name='Layer1_MaxPool1'),
 
-            layers.Conv2D(filters=128, kernel_size=3, padding='same', activation='relu'), #, name='Layer2_Conv1'),
-            layers.Conv2D(filters=128, kernel_size=3, padding='same', activation='relu'), #, name='Layer2_Conv2'),
-            layers.MaxPooling2D(), #(name='Layer2_MaxPool1'),
+            layers.Conv2D(filters=128, kernel_size=3, padding='same', activation='relu', name='Layer2_Conv1'),
+            layers.Conv2D(filters=128, kernel_size=3, padding='same', activation='relu', name='Layer2_Conv2'),
+            layers.MaxPooling2D(pool_size=(2, 2), name='Layer2_MaxPool1'),
 
-            layers.Conv2D(filters=256, kernel_size=3, padding='same', activation='relu'), #, name='Layer3_Conv1'),
-            layers.Conv2D(filters=256, kernel_size=3, padding='same', activation='relu'), #, name='Layer3_Conv2'),
-            layers.MaxPooling2D(), #(name='Layer3_MaxPool1'),
+            layers.Conv2D(filters=256, kernel_size=3, padding='same', activation='relu', name='Layer3_Conv1'),
+            layers.Conv2D(filters=256, kernel_size=3, padding='same', activation='relu', name='Layer3_Conv2'),
+            layers.MaxPooling2D(pool_size=(2, 2), name='Layer3_MaxPool1'),
 
-            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu'), #, name='Layer4_Conv1'),
-            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu'), #, name='Layer4_Conv2'),
-            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu'), #, name='Layer4_Conv3'),
-            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu'), #, name='Layer4_Conv4'),
-            layers.MaxPooling2D(), #(name='Layer4_MaxPool1'),
+            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu', name='Layer4_Conv1'),
+            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu', name='Layer4_Conv2'),
+            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu', name='Layer4_Conv3'),
+            layers.Conv2D(filters=512, kernel_size=3, padding='same', activation='relu', name='Layer4_Conv4'),
+            layers.MaxPooling2D(pool_size=(2, 2), name='Layer4_MaxPool1'),
 
             layers.Flatten(name='flatten1'),
             layers.Dense(classCnt, activation='softmax', name='Dense1'),
